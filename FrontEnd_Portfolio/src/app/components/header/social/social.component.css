@@ -1,4 +1,7 @@
-img{
-    width: 50px;
-    color: black;
+.logos-container {
+  display: flex;
+  gap: 5px;
+}
+img {
+  width: 40px;
 }

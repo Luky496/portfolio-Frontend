@@ -1,8 +1,9 @@
-div{
-    background-color: #a1b5cb;
+div {
+  background-color: #212226;
+  padding: 0 50px;
 }
 
-app-social{
-    float: right;
-    margin-top: 25px;
+app-social {
+  float: right;
+  margin-top: 25px;
 }

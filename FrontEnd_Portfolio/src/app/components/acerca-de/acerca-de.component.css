@@ -1,32 +1,59 @@
-.row{
-    padding: 20px
+.about-me {
+  display: flex;
+  background-color: #f4f4f4;
+  gap: 10px;
+  justify-content: space-between;
+  padding: 50px 50px;
+  /* margin-top: 50px; */
 }
-
-div{
-    background-color: aliceblue;
+.about-div {
+  margin-top: 50px;
+  display: flex;
+  width: 70%;
+  gap: 100px;
+}
+.acercademi {
+  font-weight: bold;
+  max-width: 600px;
+}
+.lucas {
+  text-align: center;
+}
+.about-image {
+  width: 20%;
+}
+.pp {
+  border-radius: 100%;
+}
+.about-content {
+  width: 100%;
+}
+@media (max-width: 950px) {
+  .row {
+    display: flex;
+    align-items: center;
+  }
+  .pp {
+    bottom: 0;
+  }
+}
+@media (max-width: 800px) {
+  .about-me {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0px;
+  }
+  .about-div {
+    flex-direction: column;
+  }
+  .about-content {
     text-align: center;
+    margin-top: 10px;
+  }
 }
-
-/*estilo de la foto de perfil*/
-@media (min-width: 576px){
-    #fotodeperfil{
-        position:absolute;
-        width: 18%;
-        border-radius: 100%;
-        left: 1%;
-    }
-}
-
-@media (max-width: 576px){
-    #fotodeperfil{
-        position:center;
-        width: 40%;
-        border-radius: 100%;
-    }
-}
-
 
 /*etiqueta nombre*/
-#nombre{
-    font-weight: bold;
+#nombre {
+  font-weight: bold;
+  /* margin-top: auto; */
 }

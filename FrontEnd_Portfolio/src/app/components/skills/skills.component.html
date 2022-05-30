@@ -1,0 +1,15 @@
+<div class="skills-container">
+  <h1>Habilidades</h1>
+  <div class="circulos">
+    <div *ngFor="let skill of skills" style="margin: 0 6%; margin-top: 50px">
+      <circle-progress
+        [percent]="skill.porcentaje"
+        [title]="skill.nombre"
+        [imageHeight]="100"
+        [imageWidth]="100"
+        [showImage]="true"
+        [imageSrc]="skill.foto"
+      ></circle-progress>
+    </div>
+  </div>
+</div>

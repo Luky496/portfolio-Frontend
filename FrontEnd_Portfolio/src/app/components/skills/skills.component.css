@@ -1,0 +1,13 @@
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  min-height: 100vh;
+}
+.circulos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
