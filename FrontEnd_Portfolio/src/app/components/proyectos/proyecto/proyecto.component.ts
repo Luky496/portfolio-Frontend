@@ -6,17 +6,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./proyecto.component.css'],
 })
 export class ProyectoComponent implements OnInit {
+  async getProyectos() {
+    let response = fetch('http://localhost:8080/proyectos/findAll');
+    let data = await (await response).json();
+    this.proyectos = [];
+    data.forEach((data: any) => {
+      const e = {
+        id: data.idPro,
+        name: data.namePro,
+        picture: data.picturePro,
+        github: data.githubPro,
+        description: data.descPro,
+        date: data.datePro,
+      };
+      this.proyectos.push(e);
+    });
+  }
   proyectos = [
     {
-      name: 'Argentina Programa',
-      picture:
-        'https://www.nono.gob.ar/wp-content/uploads/2021/09/WhatsApp-Image-2021-09-07-at-6.21.25-PM-2048x1024.jpeg',
-      description:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, libero a. Amet reprehenderit quidem qui unde, illum ratione autem dolor nemo neque   dolores et vitae repellendus, assumenda, repellat minus. Iure.',
+      name: '',
+      picture: '',
+      description: '',
       github: '',
+      date: '',
     },
   ];
-  constructor() {}
+
+  constructor() {
+    this.getProyectos();
+  }
 
   ngOnInit(): void {}
 }

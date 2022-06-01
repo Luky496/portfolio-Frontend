@@ -1,13 +1,12 @@
 <div class="models-wrap">
   <div class="model-container" *ngFor="let experiencia of experiencias">
     <div class="thumbnail">
-      <img
-        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/ab/85/aa/cabildo-por-fuera.jpg?w=1200&h=1200&s=1"
-        alt=""
-      />
+      <img height="450px" src="{{ experiencia.Image }}" alt="" />
     </div>
     <div class="description">
-      <h2>{{ experiencia.titulo + " (" + experiencia.date + ")" }}</h2>
+      <h2>
+        {{ experiencia.titulo + " (" + experiencia.date + "-2022" + ")" }}
+      </h2>
       <p>{{ experiencia.description }}</p>
     </div>
   </div>

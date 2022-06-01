@@ -6,7 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./skills.component.css'],
 })
 export class SkillsComponent implements OnInit {
-  constructor() {}
+  async getSkills() {
+    let response = fetch('http://localhost:8080/skill/findAll');
+    let data = await (await response).json();
+    this.skills = [];
+    data.forEach((data: any) => {
+      const e = {
+        id: data.idSkills,
+        nombre: data.nombreSkills,
+        foto: data.fotoSkills,
+        porcentaje: data.porcentaje,
+      };
+      this.skills.push(e);
+    });
+  }
+  constructor() {
+    this.getSkills();
+  }
   skills = [
     {
       id: 0,

@@ -6,43 +6,34 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./modelo.component.css'],
 })
 export class ModeloComponent implements OnInit {
-  //traer datos del back
+  async getExperience() {
+    let response = fetch('http://localhost:8080/experiencia/findAll');
+    let data = await (await response).json();
+    this.experiencias = [];
+    data.forEach((data: any) => {
+      const e = {
+        id: data.idExp,
+        titulo: data.títuloExp,
+        date: data.fechaExp,
+        description: data.descExp,
+        Image: data.imagenExp,
+      };
+      this.experiencias.push(e);
+    });
+  }
   experiencias = [
     {
-      id: 0,
-      titulo: 'poder judicial',
-      date: '2018-2022',
-      description: 'chicharito hernandez',
-      Image:
-        'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/ab/85/aa/cabildo-por-fuera.jpg?w=1200&h=1200&s=1',
+      id: '',
+      titulo: '',
+      date: '',
+      description: '',
+      Image: '',
     },
-
-    // {
-    //   id: 0,
-    //   titulo: 'poder judicial 2',
-    //   date: '2018-2020',
-    //   description: 'el bichooo',
-    //   Image:
-    //     'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/ab/85/aa/cabildo-por-fuera.jpg?w=1200&h=1200&s=1',
-    // },
-    // {
-    //   id: 0,
-    //   titulo: 'poder judicial 2',
-    //   date: '2018-2020',
-    //   description: 'el bichooo',
-    //   Image:
-    //     'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/ab/85/aa/cabildo-por-fuera.jpg?w=1200&h=1200&s=1',
-    // },
-    // {
-    //   id: 0,
-    //   titulo: 'poder judicial 2',
-    //   date: '2018-2020',
-    //   description: 'el bichooo',
-    //   Image:
-    //     'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/ab/85/aa/cabildo-por-fuera.jpg?w=1200&h=1200&s=1',
-    // },
   ];
-  constructor() {}
+
+  constructor() {
+    this.getExperience();
+  }
 
   ngOnInit(): void {}
 }

@@ -6,6 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modelo-edu.component.css'],
 })
 export class ModeloEduComponent implements OnInit {
+  async getExperience() {
+    let response = fetch('http://localhost:8080/educacion/findAll');
+    let data = await (await response).json();
+    this.experiencias = [];
+    data.forEach((data: any) => {
+      const e = {
+        id: data.idEdu,
+        titulo: data.títuloEdu,
+        date: data.fechaEdu,
+        description: data.descEdu,
+        Image: data.imagenEdu,
+      };
+      this.experiencias.push(e);
+    });
+    console.log(this.experiencias);
+  }
+
   experiencias = [
     {
       id: 0,
@@ -32,7 +49,9 @@ export class ModeloEduComponent implements OnInit {
         'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/ab/85/aa/cabildo-por-fuera.jpg?w=1200&h=1200&s=1',
     },
   ];
-  constructor() {}
+  constructor() {
+    this.getExperience();
+  }
 
   ngOnInit(): void {}
 }

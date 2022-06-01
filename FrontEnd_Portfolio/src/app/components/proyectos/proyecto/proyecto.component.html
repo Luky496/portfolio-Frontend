@@ -1,12 +1,14 @@
 <div class="proyecto" *ngFor="let proyecto of proyectos">
-  <h3 style="margin-bottom: 20px">{{ proyecto.name }}</h3>
-  <img class="" src="{{ proyecto.picture }}" alt="" />
-  <p class="description">
-    {{ proyecto.description }}
-  </p>
-  <div class="button-wrap">
-    <div class="button">
-      <p class="button-content">Github</p>
+  <h3 style="margin-bottom: 20px">{{ proyecto.name }} ({{ proyecto.date }})</h3>
+  <div class="proyecto-container">
+    <img class="" src="{{ proyecto.picture }}" alt="" />
+    <p class="description">
+      {{ proyecto.description }}
+    </p>
+    <div class="button-wrap">
+      <div class="button">
+        <p class="button-content">Github</p>
+      </div>
     </div>
   </div>
 </div>
